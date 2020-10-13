@@ -8,7 +8,7 @@
       <th>Title</th>
       <th>Content</th>
       <% if user_signed_in? %>
-        <th>User</th>
+        <th>Author</th>
       <% end %>
       <th colspan="3"></th>
     </tr>
@@ -20,7 +20,7 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <% if user_signed_in? %>
-          <td><%= post.user_id %></td>
+          <td><%= User.find(post.user_id).name %></td>
         <% end %>
         <td><%= link_to "Show", post %></td>
         <td><%= link_to "Edit", edit_post_path(post) %></td>
