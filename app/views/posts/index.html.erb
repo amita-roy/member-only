@@ -1,7 +1,15 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+    <p> Hello, <%= current_user.name %> - <%= link_to "Sign_out", destroy_user_session_path, :method => "delete" %>
 
-<h1>Posts</h1>
-
+<% else %>
+<%= link_to "Sign Up", new_user_registration_path %>
+<%= link_to "Login", new_user_session_path %>
+<% end %>
+<h1>All Posts</h1>
+<% if @posts.empty? %>
+<h4>No Post yet! Please add some post here.</h4>
+<% else %>
 <table>
   <thead>
     <tr>
@@ -22,13 +30,12 @@
         <% if user_signed_in? %>
           <td><%= User.find(post.user_id).name %></td>
         <% end %>
-        <td><%= link_to "Show", post %></td>
-        <td><%= link_to "Edit", edit_post_path(post) %></td>
-        <td><%= link_to "Destroy", post, method: :delete, data: { confirm: "Are you sure?" } %></td>
+       
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
