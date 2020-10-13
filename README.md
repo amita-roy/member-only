@@ -8,6 +8,7 @@ This is the project to learn about the session, cookies and authentication.
 -   Rubocop
 -   Ubuntu
 -   Rails
+-   Mac
 
 ## Prerequisities
 
